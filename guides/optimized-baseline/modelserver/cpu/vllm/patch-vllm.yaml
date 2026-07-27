@@ -41,11 +41,11 @@ spec:
                 - SYS_NICE
           resources:
             limits:
-              memory: 6Gi
+              memory: 8Gi
               cpu: "2"
             requests:
               cpu: "2"
-              memory: 6Gi
+              memory: 8Gi
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm
