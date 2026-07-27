@@ -7,19 +7,20 @@ For this quickstart, we will use the **Standalone Mode** deployment, which is th
 ## Prerequisites
 
 - Installed proper client tools (kubectl, helm).
-- Set the following environment variables:
-  ```bash
-  export REPO_ROOT=$(realpath $(git rev-parse --show-toplevel))
-  source ${REPO_ROOT}/guides/env.sh
-  export GUIDE_NAME="quickstart"
-  export NAMESPACE=llm-d-quickstart
-  ```
 
 - Checkout llm-d repo:
 
   ```bash
     export branch="release-0.8"
     git clone https://github.com/chris-short/llm-d.git && cd llm-d && git checkout ${branch}
+  ```
+
+- Set the following environment variables:
+  ```bash
+  export REPO_ROOT=$(realpath $(git rev-parse --show-toplevel))
+  source ${REPO_ROOT}/guides/env.sh
+  export GUIDE_NAME="quickstart"
+  export NAMESPACE=llm-d-quickstart
   ```
 
 - Install the Gateway API Inference Extension CRDs:
