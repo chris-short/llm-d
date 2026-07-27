@@ -89,7 +89,8 @@ curl -X POST http://${IP}/v1/completions \
     -H 'Content-Type: application/json' \
     -d '{
         "model": "Qwen/Qwen2.5-0.5B-Instruct",
-        "prompt": "How are you today?"
+        "prompt": "How are you today?",
+        "max_tokens": 200
     }' | jq
 ```
 
