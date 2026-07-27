@@ -19,7 +19,7 @@ For this quickstart, we will use the **Standalone Mode** deployment, which is th
 
   ```bash
     export branch="release-0.8"
-    git clone https://github.com/llm-d/llm-d.git && cd llm-d && git checkout ${branch}
+    git clone https://github.com/chris-short/llm-d.git && cd llm-d && git checkout ${branch}
   ```
 
 - Install the Gateway API Inference Extension CRDs:
@@ -33,17 +33,6 @@ For this quickstart, we will use the **Standalone Mode** deployment, which is th
   ```bash
   kubectl create namespace ${NAMESPACE} --dry-run=client -o yaml | kubectl apply -f -
   ```
-
-- [Create the `llm-d-hf-token` secret in your target namespace with the key `HF_TOKEN` matching a valid HuggingFace token](../../helpers/hf-token.md) to pull models.
-<!-- llm-d-cicd:skip start -->
-  ```bash
-  export HF_TOKEN=<your HuggingFace token>
-  kubectl create secret generic llm-d-hf-token \
-    --from-literal="HF_TOKEN=${HF_TOKEN}" \
-    --namespace "${NAMESPACE}" \
-    --dry-run=client -o yaml | kubectl apply -f -
-  ```
-<!-- llm-d-cicd:skip end -->
 
 ## Installation Instructions
 
@@ -61,10 +50,10 @@ helm install ${GUIDE_NAME} \
 
 ### 2. Deploy the Model Server
 
-Deploy the default model server (vLLM running on NVIDIA GPUs). This will deploy 8 replicas of `Qwen/Qwen3-32B` by default.
+Deploy the default model server (vLLM running on NVIDIA GPUs). This will deploy 8 replicas of `Qwen/Qwen2.5-0.5B-Instruct` by default.
 
 ```bash
-kubectl apply -n ${NAMESPACE} -k guides/optimized-baseline/modelserver/gpu/vllm/base
+kubectl apply -n ${NAMESPACE} -k guides/optimized-baseline/modelserver/cpu/vllm/base
 ```
 
 > [!TIP]
@@ -98,7 +87,7 @@ Inside the shell, send a completion request:
 curl -X POST http://${IP}/v1/completions \
     -H 'Content-Type: application/json' \
     -d '{
-        "model": "Qwen/Qwen3-32B",
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
         "prompt": "How are you today?"
     }' | jq
 ```
