@@ -54,7 +54,7 @@ helm install ${GUIDE_NAME} \
 Deploy the default model server (vLLM running on NVIDIA GPUs). This will deploy 8 replicas of `Qwen/Qwen2.5-0.5B-Instruct` by default.
 
 ```bash
-kubectl apply -n ${NAMESPACE} -k guides/optimized-baseline/modelserver/cpu/vllm/base
+kubectl apply -n ${NAMESPACE} -k guides/optimized-baseline/modelserver/cpu/vllm/
 ```
 
 > [!TIP]
