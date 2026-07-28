@@ -20,7 +20,7 @@ For this quickstart, we will use the **Standalone Mode** deployment, which is th
   export REPO_ROOT=$(realpath $(git rev-parse --show-toplevel))
   source ${REPO_ROOT}/guides/env.sh
   export GUIDE_NAME="quickstart"
-  export NAMESPACE=llm-d-quickstart
+  export NAMESPACE=llm-d
   ```
 
 - Install the Gateway API Inference Extension CRDs:
